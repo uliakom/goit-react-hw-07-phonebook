@@ -25,7 +25,7 @@ export const Form = styled.form`
     border-left: 0;
     border-right: 0;
     border-width: 3px;
-    border-image: linear-gradient(to right, red, blue);
+    border-image: linear-gradient(to left, #00223E, #FFA17F);
     border-image-slice: 1;
     background: transparent;
   }
@@ -41,12 +41,10 @@ export const Form = styled.form`
     border-radius: 4px;
     border-style: none;
     color: #ffffff;
-    background: #355c7d;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #c06c84, #6c5b7b, #355c7d);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #c06c84, #6c5b7b, #355c7d);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: background: #FFA17F;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #00223E, #FFA17F);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #00223E, #FFA17F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
     &:hover,
     &:focus {

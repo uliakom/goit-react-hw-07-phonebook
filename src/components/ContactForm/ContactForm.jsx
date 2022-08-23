@@ -1,37 +1,44 @@
-import shortid from 'shortid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState } from 'react';
 import { Form } from './ContactForm.styled';
-import { useDispatch, useSelector } from 'react-redux/es/exports';
-import { addContact } from 'redux/contactsSlice';
-import * as selectors from '../../redux/selectors';
+import { useCreateContactMutation, useGetContactsQuery } from 'redux/api';
 
 const ContactForm = () => {
-  const dispatch = useDispatch();
-  const contacts = useSelector(selectors.getContacts);
+  const [createContact, { isLoading }] = useCreateContactMutation();
+  const { data: contacts = [] } = useGetContactsQuery();
+
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    const newContact = {
-      id: shortid.generate(),
-      name: name.toLowerCase(),
-      number,
-    };
+    try {
+      const newContact = {
+        name,
+        phone,
+      };
 
-    if (contacts.some(contact => contact.name === newContact.name)) {
-      return Notify.warning(
-        `${newContact.name} is already in contacts.
+      if (
+        contacts.some(
+          contact =>
+            contact.name.toLowerCase() === newContact.name.toLowerCase()
+        )
+      ) {
+        return Notify.warning(
+          `${newContact.name} is already in contacts.
         Please choose other name.`,
-        {
-          position: 'center-center',
-          timeout: 4000,
-        }
-      );
+          {
+            position: 'center-center',
+            timeout: 4000,
+          }
+        );
+      }
+      await createContact(newContact);
+      Notify.success('Contact has been added');
+      reset();
+    } catch (error) {
+      Notify.failure(`${error.message}`);
     }
-    dispatch(addContact(newContact));
-    reset();
   };
 
   const handleChange = e => {
@@ -40,8 +47,8 @@ const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'number':
-        setNumber(value);
+      case 'phone':
+        setPhone(value);
         break;
       default:
         break;
@@ -50,7 +57,7 @@ const ContactForm = () => {
 
   const reset = () => {
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
@@ -74,8 +81,8 @@ const ContactForm = () => {
           Phone number
           <input
             type="tel"
-            name="number"
-            value={number}
+            name="phone"
+            value={phone}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
@@ -83,7 +90,9 @@ const ContactForm = () => {
           />
         </label>
       </div>
-      <button type="submit">Add contact</button>
+      <button type="submit" disabled={isLoading}>
+        Add contact
+      </button>
     </Form>
   );
 };

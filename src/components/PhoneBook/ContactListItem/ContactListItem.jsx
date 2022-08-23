@@ -1,21 +1,25 @@
 import PropTypes from 'prop-types';
-import { Container } from './ContactListItem.styled';
-import { removeContact } from 'redux/contactsSlice';
-import { useDispatch } from 'react-redux';
+import { Container, Wrap } from './ContactListItem.styled';
+import { useDeleteContactMutation } from 'redux/api';
 
 const ContactListItem = ({ contact }) => {
-  const dispatch = useDispatch();
-
-  const handleDelete = contactId => {
-    dispatch(removeContact(contactId));
-  };
+  const [deleteContact, { isLoading: removing }] = useDeleteContactMutation();
 
   return (
     <Container>
-      <p>
-        {contact.name}:<span>{contact.number}</span>
-      </p>
-      <button type="button" onClick={() => handleDelete(contact.id)}>
+      <Wrap>
+        <div>
+          <p>{contact.name}</p>
+        </div>
+        <div>
+          <p>{contact.phone}</p>
+        </div>
+      </Wrap>
+      <button
+        type="button"
+        disabled={removing}
+        onClick={() => deleteContact(contact.id)}
+      >
         Delete
       </button>
     </Container>
