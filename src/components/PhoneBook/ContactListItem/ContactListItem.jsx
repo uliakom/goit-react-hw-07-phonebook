@@ -1,26 +1,38 @@
 import PropTypes from 'prop-types';
 import { Container, Wrap } from './ContactListItem.styled';
+import { useNavigate } from 'react-router-dom';
 import { useDeleteContactMutation } from 'redux/api';
+import { Loader } from 'components/Loader/Loader';
 
 const ContactListItem = ({ contact }) => {
   const [deleteContact, { isLoading: removing }] = useDeleteContactMutation();
+  const navigate = useNavigate();
+  const { name, phone, id } = contact;
+
+  const openModal = () => {
+    Loader();
+    navigate(`/contact/${id}`);
+  };
 
   return (
     <Container>
       <Wrap>
         <div>
-          <p>{contact.name}</p>
+          <p>{name}</p>
         </div>
         <div>
-          <p>{contact.phone}</p>
+          <p>{phone}</p>
         </div>
       </Wrap>
       <button
         type="button"
         disabled={removing}
-        onClick={() => deleteContact(contact.id)}
+        onClick={() => deleteContact(id)}
       >
-        Delete
+        X
+      </button>
+      <button type="button" disabled={removing} onClick={openModal}>
+        Edit
       </button>
     </Container>
   );

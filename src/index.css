@@ -7,6 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./image/phone.jpg");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 300px 100px;
   background: #FFA17F;
     /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #00223E, #FFA17F);

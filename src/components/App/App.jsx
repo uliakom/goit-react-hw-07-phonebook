@@ -1,17 +1,17 @@
-import { Container, Title, SubTitle } from './App.styled';
-import ContactForm from 'components/ContactForm';
-import PhoneBook from 'components/PhoneBook';
-import Filter from 'components/Filter';
+import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+const Home = lazy(() => import('pages/Home'));
+const Modal = lazy(() => import('components/Modal'));
 
 const App = () => {
   return (
-    <Container>
-      <Title>Phonebook</Title>
-      <ContactForm />
-      <SubTitle>Contacts</SubTitle>
-      <Filter />
-      <PhoneBook />
-    </Container>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="contact/:contactId" element={<Modal />}></Route>
+        </Route>
+      </Routes>
+    </>
   );
 };
 

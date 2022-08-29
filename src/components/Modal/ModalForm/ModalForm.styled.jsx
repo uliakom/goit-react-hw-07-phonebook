@@ -1,40 +1,42 @@
 import styled from '@emotion/styled';
 
-export const Form = styled.form`
-  width: 300px;
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const Container = styled.div`
+position: relative;
+  width: 400px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 4px;
 
-  div {
-    margin-bottom: 20px;
+  form {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    row-gap: 10px;
   }
 
-  lable {
-    display: block;
-    font-size: 14px;
-    display: block;
-    margin-top: 30px;
+  label{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    span{
+        font-size: 13px;
+    }
   }
 
   input {
-    display: block;
-    width: 300px;
+    width: 200px;
     height: 20px;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-width: 3px;
     border-image: linear-gradient(to left, #00223E, #FFA17F);
     border-image-slice: 1;
     background: transparent;
+    font-size: 16px;
   }
 
   button {
     display: block;
-    margin: 0 auto 20px auto;
+    margin: 20px auto 20px auto;
     width: 100px;
     height: 30px;
     text-align: center;
@@ -46,8 +48,6 @@ export const Form = styled.form`
     background: background: #FFA17F;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to left, #00223E, #FFA17F);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to left, #00223E, #FFA17F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
     &:hover,
     &:focus {
       transform: scale(1.1);
