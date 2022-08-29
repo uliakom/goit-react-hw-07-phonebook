@@ -1,13 +1,24 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-07-phonebook/static/css/main.64e9802f.css",
-    "main.js": "/goit-react-hw-07-phonebook/static/js/main.bf1399f4.js",
+    "main.css": "/goit-react-hw-07-phonebook/static/css/main.5cf5aefd.css",
+    "main.js": "/goit-react-hw-07-phonebook/static/js/main.fcc29053.js",
+    "static/js/564.3a070ba3.chunk.js": "/goit-react-hw-07-phonebook/static/js/564.3a070ba3.chunk.js",
+    "static/js/536.3a9c7822.chunk.js": "/goit-react-hw-07-phonebook/static/js/536.3a9c7822.chunk.js",
+    "static/js/534.8eb15ab5.chunk.js": "/goit-react-hw-07-phonebook/static/js/534.8eb15ab5.chunk.js",
+    "static/js/410.f640de87.chunk.js": "/goit-react-hw-07-phonebook/static/js/410.f640de87.chunk.js",
+    "static/js/562.4550700e.chunk.js": "/goit-react-hw-07-phonebook/static/js/562.4550700e.chunk.js",
+    "static/media/phone.jpg": "/goit-react-hw-07-phonebook/static/media/phone.01f37bdc8a2d20bb6649.jpg",
     "index.html": "/goit-react-hw-07-phonebook/index.html",
-    "main.64e9802f.css.map": "/goit-react-hw-07-phonebook/static/css/main.64e9802f.css.map",
-    "main.bf1399f4.js.map": "/goit-react-hw-07-phonebook/static/js/main.bf1399f4.js.map"
+    "main.5cf5aefd.css.map": "/goit-react-hw-07-phonebook/static/css/main.5cf5aefd.css.map",
+    "main.fcc29053.js.map": "/goit-react-hw-07-phonebook/static/js/main.fcc29053.js.map",
+    "564.3a070ba3.chunk.js.map": "/goit-react-hw-07-phonebook/static/js/564.3a070ba3.chunk.js.map",
+    "536.3a9c7822.chunk.js.map": "/goit-react-hw-07-phonebook/static/js/536.3a9c7822.chunk.js.map",
+    "534.8eb15ab5.chunk.js.map": "/goit-react-hw-07-phonebook/static/js/534.8eb15ab5.chunk.js.map",
+    "410.f640de87.chunk.js.map": "/goit-react-hw-07-phonebook/static/js/410.f640de87.chunk.js.map",
+    "562.4550700e.chunk.js.map": "/goit-react-hw-07-phonebook/static/js/562.4550700e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.64e9802f.css",
-    "static/js/main.bf1399f4.js"
+    "static/css/main.5cf5aefd.css",
+    "static/js/main.fcc29053.js"
   ]
 }
